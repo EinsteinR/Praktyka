@@ -1,0 +1,24 @@
+
+2006-08-08 sd-reader
+	* Thanks go to Torsten Seeboth for his ongoing efforts
+	  to test changes, fix regressions and give suggestions.
+	  Many of the changes below were initiated by him.
+	* Much more reliable card initialization.
+	* Highly improved performance
+	  - optional write buffering
+	  - better cluster handling
+	  - remove unneeded SPI access when reading from buffered block
+	  - use highest spi frequency after card initialization
+	* Add superfloppy support.
+	* Better checks when opening a FAT16 filesystem.
+	* Provide SPI pin mappings for commonly used ATmegas.
+	* Fix resizing files, hangs could occur.
+	* Fix overflow when creating files with names longer than 31 characters.
+	* Fix numerous other small things.
+
+2006-03-19 sd-reader
+	* Fix speed regressions.
+
+2006-03-16 sd-reader
+	* Initial releaseA.
+
