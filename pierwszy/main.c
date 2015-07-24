@@ -12,7 +12,7 @@
 #define ENG_SIG_TAB_SIZE 16
 
 
-volatile uint16_t TDelay = 100; //Zmienna obs³ugiwna w przerwaniach
+volatile uint16_t TDelay = 100; //Zmienna obsï¿½ugiwna w przerwaniach
 char * komunikat = "Kokosz Ty BooCIE!";
 volatile char  wartosc[4];
 volatile uint8_t i = 0;
@@ -31,12 +31,12 @@ volatile bool kierunek =0;
 void USART_Init(void)
 {
 	UCSRA &= ~(1<<U2X); //Rejest ustawienia preskalera do obliczania BAUD
-	UBRRL = (unsigned char)BAUD_PRESCALE; //wspó³czynnik do okreslenia predkosci transmisji 9600 kb/s (UBBR=f_sys/(16*BAUD)-1)
+	UBRRL = (unsigned char)BAUD_PRESCALE; //wspï¿½czynnik do okreslenia predkosci transmisji 9600 kb/s (UBBR=f_sys/(16*BAUD)-1)
 	UBRRH = (BAUD_PRESCALE >> 8);
 	UCSRC &= ~(1<<UMSEL); //Draca asynchroniczna
 	//Odkomentowanie tego nie dzi
 	//UCSRC |= (1<<URSEL); //Mozliwosc konfigurowania UCSRC
-	//UCSRC |= ((1<<UCSZ1) | (1<<UCSZ0)); //Bity okreslajace wielkosc wysy³anych danych (nie ramki)
+	//UCSRC |= ((1<<UCSZ1) | (1<<UCSZ0)); //Bity okreslajace wielkosc wysyï¿½anych danych (nie ramki)
 	UCSRB |= ((1<<RXEN) | (1<<TXEN)); //wlaczone moduly nadawcze i odbiorcze
 	UCSRB |= (1<<RXCIE); //Umozliwia wyzwolenia przerwan przy odbiorze
 }
@@ -113,7 +113,7 @@ int main(void){
 	PORTD |= (1<<PD6);
 	DDRC = 0b00111111;
 
-	cli(); // blokowanie przerwañ CLEAR INTERRUPTS
+	cli(); // blokowanie przerwaï¿½ CLEAR INTERRUPTS
 	GICR |=(1<<INT0); //uaktywnienie INT0 w rejestrz GICR s.46 datasheet
 	MCUCR |=(1<<ISC01); //ustawienie INT0 na zbocze opadajace s.65 datasheet
 	USART_Init(); //Inicjalizacja komunikacji USART
